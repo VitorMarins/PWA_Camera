@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-192x192.png" type="image/png">
+    <title>PWA Camera</title>
+</head>
+<body>
+    <section class="container">
+        <h1>PWA Camera</h1>
+        <p><button onclick="getStream()">Grab video</button></p>
+        <p><video autoplay style="height: 180px; width: 240px;"></video></p>
+        <p><button onclick="takePhoto()">Take Photo!</button></p>
+        <p><img id="imageTag" height="300px" width="500px"></p>
+    </section>
+</body>
+<script src="./js/index.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('Service Worker registrado com sucesso.'))
+        .catch((error) => console.log('Falha ao registrar o Service Worker:', error));
+    }
+  </script>
+</html>
